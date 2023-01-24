@@ -182,7 +182,7 @@ const Navbar = ({ flexDirection }) => {
                       <Image src="./images/facebook.png" className={icons} />
                     </a>
                     <a target="_blank" href="https://www.google.com/">
-                      <Image src="../images/icon.png" className={icons} />
+                      <Image src="./images/google.png" className={icons} />
                     </a>
                     <a target="_blank" href="https://www.instagram.com/">
                       <Image src="./images/instagram.png" className={icons} />
