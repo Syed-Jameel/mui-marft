@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "space-between",
       alignItems: "center",
       maxWidth: "100%",
-      padding: "7rem 0",
+      padding: "6rem 0",
       [theme.breakpoints.down("lg")]: {
         display: "flex",
         justifyContent: "center",
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => {
       backgroundColor: "#181817 !important",
     },
     heading: {
-      paddingBottom: "2rem",
+      paddingBottom: "1rem",
       fontFamily: "Darker Grotesque",
       fontStyle: "normal",
       fontWeight: "900",
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => {
     },
     para: {
       color: "#6E6E6E",
-      paddingBottom:"1rem",
+      paddingBottom:"0.5rem",
     },
     read_more: {
       fontStyle: "normal",
