@@ -3,6 +3,11 @@ import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import { Button, Box, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import AboutUs from "./AboutUs";
+import Service from "./Service";
+import Blog from "./Blog";
+import Contact from "./Contact";
+
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -12,7 +17,10 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       maxWidth: "100%",
       height: "100vh",
-      backgroundColor: "#F8F3EC",
+      // backgroundColor: "#F8F3EC",
+      backgroundColor: theme.palette.primary.background,
+      color: theme.palette.primary.textColor,
+
       [theme.breakpoints.down("lg")]: {
         width: "100vw",
       },
@@ -177,6 +185,8 @@ const Hero = () => {
   } = useStyles();
 
   return (
+    <>
+    {/* hero */}
     <Box className={main_wrapper}>
       <Box className={details_box}>
         <Box className={detail_right_box}>
@@ -227,6 +237,21 @@ const Hero = () => {
         </Box>
       </Box>
     </Box>
+    
+    {/* about */}
+    <AboutUs/>
+
+    {/* Service */}
+    <Service/>
+
+    {/* Blog */}
+    <Blog/>
+
+    {/* contact */}
+    <Contact/>
+
+
+    </>
   );
 };
 

@@ -160,7 +160,7 @@ const AboutUs = () => {
               </Typography>
             </Box>
             <Box>
-              <Button variant="contained" className={btn_aboutus} component={Link} to="/marft">About Us</Button>
+              <Button variant="contained" className={btn_aboutus} component={Link} to="/">About Us</Button>
             </Box>
           </Box>
         </Box>

@@ -31,11 +31,11 @@ const DrawerComponent = () => {
                 <ListItemIcon ><VideoLabelIcon/></ListItemIcon>
                 <ListItemText >Blog</ListItemText>
               </ListItemButton>
-              <ListItemButton component={Link} to="/mui-marft" variant="contained" onClick= {() => setOpenDrawer(!openDrawer)}>
+              <ListItemButton component={Link} to="/" variant="contained" onClick= {() => setOpenDrawer(!openDrawer)}>
                 <ListItemIcon ><LoginIcon/></ListItemIcon>
                 <ListItemText >Login</ListItemText>
               </ListItemButton>
-              <ListItemButton component={Link} to="/mui-marft" variant="contained" onClick= {() => setOpenDrawer(!openDrawer)}>
+              <ListItemButton component={Link} to="/" variant="contained" onClick= {() => setOpenDrawer(!openDrawer)}>
                 <ListItemIcon ><LogoutIcon/></ListItemIcon>
                 <ListItemText >Logout</ListItemText>
             </ListItemButton>

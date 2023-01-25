@@ -1,5 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import IconButton from '@mui/material/IconButton';
+import { useTheme} from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import PublicIcon from "@mui/icons-material/Public";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+
+import { ColorModeContext } from "../App";
 import {
   AppBar,
   Toolbar,
@@ -8,22 +17,24 @@ import {
   Tabs,
   Tab,
   useMediaQuery,
-  useTheme,
+  Container,
 } from "@mui/material";
 
 import { Image } from "mui-image";
 import { useState } from "react";
 import DrawerComponent from "./DrawerComponent";
 import { makeStyles } from "@mui/styles";
+import { useContext } from "react";
 
 const useStyles = makeStyles((theme) => {
   return {
     navbar: {
-      background: "#F8F3EC !important",
+      background: theme.palette.primary.main,
       boxShadow: "unset !important",
       boxSizing: "border-box",
       padding: "0.5rem",
       position: "static",
+      borderBottom: "1.5px solid #6F6F6F",
     },
     links_wrapper: {
       display: "flex",
@@ -38,7 +49,7 @@ const useStyles = makeStyles((theme) => {
       textTransform: "initial !important",
       fontSize: "1rem !important",
       "&:hover": {
-        color: "#F6D88C",
+        color: theme.palette.primary.linkTextColor,
       },
     },
     brand_wrapper: {
@@ -54,7 +65,7 @@ const useStyles = makeStyles((theme) => {
       fontWeight: "600 !important",
       fontSize: "2.2rem !important",
       lineHeight: "5rem",
-      color: "#181817",
+      color: theme.palette.primary.logoTextColor,
     },
     brand_small_screen: {
       marginLeft: "auto",
@@ -80,8 +91,11 @@ const useStyles = makeStyles((theme) => {
       maxWidth: "100%",
     },
     icons: {
-      width: "70% !important",
-      paddingLeft: "2rem",
+      color: theme.palette.primary.logoTextColor,
+      border: "1px solid #6F6F6F",
+      borderRadius: "50%",
+      padding: "8px",
+      margin: "10px",
     },
     wrapper: {
       display: "flex",
@@ -90,10 +104,13 @@ const useStyles = makeStyles((theme) => {
       alignItems: "center",
       width: "100%",
     },
+    border:{}
   };
 });
 
-const Navbar = ({ flexDirection }) => {
+const Navbar = ({ flexDirection, obj , toggleColorMode}) => {
+
+  const mode = useContext(ColorModeContext);
   const {
     tabs,
     brand,
@@ -108,94 +125,126 @@ const Navbar = ({ flexDirection }) => {
     brand_small_screen,
     wrapper,
     links_Logo_wrapper,
+    border
   } = useStyles({ flexDirection: flexDirection });
 
-  const [value, setValue] = useState();
+  // const [value, setValue] = useState();
 
-  const them = useTheme();
+  const theme = useTheme();
   // console.log(them);
-  const isMatch = useMediaQuery(them.breakpoints.down("lg"));
+  const isMatch = useMediaQuery(theme.breakpoints.down("lg"));
   // console.log(isMatch);
 
   // const PAGES = ["About us", "Service", "Blog", "Contact"];
 
   return (
     <>
-      <AppBar className={navbar}>
-        <Toolbar>
-          {isMatch ? (
-            <>
-              <DrawerComponent />
-              <Box className={brand_small_screen} component={Link} to="/mui-marft">
-                <Typography variant="h5" className={brand}>
-                  Marft
-                </Typography>
-                <Typography variant="h5" className={dot_style}>
-                  .
-                </Typography>
-              </Box>
-            </>
-          ) : (
-            <>
-              <Box className={wrapper}>
-                <Box className={links_wrapper}>
-                  <Tabs
-                    className={tabs}
-                    value={value}
-                    onChange={(e, value) => setValue(value)}
-                  >
-                    <Tab
-                      label="About Us"
-                      component={Link}
-                      to="/about-us"
-                      className={tab_style}
-                    />
-                    <Tab
-                      label="Service"
-                      component={Link}
-                      to="/service"
-                      className={tab_style}
-                    />
-                    <Tab
-                      label="Blog"
-                      component={Link}
-                      to="/blog"
-                      className={tab_style}
-                    />
-                    <Tab
-                      label="Contact"
-                      component={Link}
-                      to="/contact"
-                      className={tab_style}
-                    />
-                  </Tabs>
+      {" "}
+      <Container maxWidth="lg" className={border}>
+        <AppBar className={navbar}>
+          <Toolbar>
+            {isMatch ? (
+              <>
+                <DrawerComponent />
+                <Box
+                  className={brand_small_screen}
+                  component={Link}
+                  to="/"
+                >
+                  <Typography variant="h5" className={brand}>
+                    Marft
+                  </Typography>
+                  <Typography variant="h5" className={dot_style}>
+                    .
+                  </Typography>
                 </Box>
+              </>
+            ) : (
+              <>
+                <Box className={wrapper}>
+                  {obj?.first === "logo" ? (
+                    <Logo />
+                  ) : obj?.first === "links" ? (
+                    <Links />
+                  ) : null}
+                  {obj?.second === "logo" ? (
+                    <Logo />
+                  ) : obj?.second === "links" ? (
+                    <Links />
+                  ) : null}
 
-                <Box className={brand_wrapper} component={Link} to="/mui-marft">
-                  <Typography className={brand}>Marft</Typography>
-                  <Typography className={dot_style}>.</Typography>
-                </Box>
-
-                <Box className={icons_wrapper}>
-                  <Box className={icons_box}>
-                    <a target="_blank" href="https://www.facebook.com/">
-                      <Image src="./images/facebook.png" className={icons} />
-                    </a>
-                    <a target="_blank" href="https://www.google.com/">
-                      <Image src="./images/google.png" className={icons} />
-                    </a>
-                    <a target="_blank" href="https://www.instagram.com/">
-                      <Image src="./images/instagram.png" className={icons} />
-                    </a>
+                  <Box className={icons_wrapper}>
+                    <Box className={icons_box}>
+                    
+        
+          
+                      <a target="_blank" href="https://www.facebook.com/">
+                        {/* <Image src="./images/facebook.png" className={icons} /> */}
+                        <FacebookIcon className={icons} />
+                      </a>
+                      <a target="_blank" href="https://www.google.com/">
+                        {/* <Image src="./images/google.png" className={icons} /> */}
+                        <PublicIcon className={icons} />
+                      </a>
+                      <a target="_blank" href="https://www.instagram.com/">
+                        {/* <Image src="./images/instagram.png" className={icons} /> */}
+                        <InstagramIcon className={icons} />
+                      </a>
+                    </Box>
                   </Box>
+
+                  {mode} mode
+                  <IconButton sx={{ ml: 1 }} onClick = {() => toggleColorMode()}>
+                  {mode === 'light' ? <Brightness7Icon /> : <Brightness4Icon />}
+                  </IconButton>
                 </Box>
-              </Box>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
+              </>
+            )}
+          </Toolbar>
+        </AppBar>
+      </Container>
     </>
   );
 };
 
 export default Navbar;
+
+const Links = () => {
+  const { tabs, links_wrapper, tab_style } = useStyles();
+
+  return (
+    <Box className={links_wrapper}>
+      <Tabs className={tabs}>
+        <Tab
+          label="About Us"
+          component={Link}
+          to="/about-us"
+          className={tab_style}
+        />
+        <Tab
+          label="Service"
+          component={Link}
+          to="/service"
+          className={tab_style}
+        />
+        <Tab label="Blog" component={Link} to="/blog" className={tab_style} />
+        <Tab
+          label="Contact"
+          component={Link}
+          to="/contact"
+          className={tab_style}
+        />
+      </Tabs>
+    </Box>
+  );
+};
+const Logo = () => {
+  const { brand, brand_wrapper, dot_style } = useStyles();
+
+  return (
+    <Box className={brand_wrapper} component={Link} to="/">
+      <Typography className={brand}>Marft</Typography>
+      <Typography className={dot_style}>.</Typography>
+    </Box>
+  );
+};

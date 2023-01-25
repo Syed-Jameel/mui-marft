@@ -6,11 +6,12 @@ import {Link} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => {
   return {
+  
     main_wrapper: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      maxWidth: "100%",
+      width: "100%",
       height:"100vh",
       [theme.breakpoints.down("lg")]: {
         display: "flex",
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => {
     },
     btn_read: {
       backgroundColor: "#181817 !important",
+      color:"white !important",
     },
     heading: {
       paddingBottom: "0.7rem",
@@ -110,10 +112,12 @@ const Blog = () => {
     date,
     para,
     read_more,
+    
   } = useStyles();
 
   return (
-    <Container maxWidth="lg">
+  
+     <Container maxWidth="lg">
       <Box className={main_wrapper}>
         <Box className={left_box}>
           <Box sx={{ height: "100px" }}>
@@ -136,7 +140,7 @@ const Blog = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas error
             in temporibus consequatur. Quae, corporis.
           </Typography>
-          <Link color="inherit" className={read_more}  to="/mui-marft">
+          <Link color="inherit" className={read_more}  to="/">
             READ MORE
           </Link>
         </Box>
@@ -150,7 +154,7 @@ const Blog = () => {
                 alignItems: "flex-end",
               }}
             >
-              <Button variant="contained" size="large" className={btn_read} component={Link} to="/mui-marft">
+              <Button variant="contained" size="large" className={btn_read} component={Link} to="/">
                 READ ALL BlOGS
               </Button>
             </Box>
@@ -165,13 +169,14 @@ const Blog = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
               error in temporibus consequatur. Quae, corporis.
             </Typography>
-            <Link to="/mui-marft" color="inherit" className={read_more} >
+            <Link to="/" color="inherit" className={read_more} >
               READ MORE
             </Link>
           </Box>
         </Box>
       </Box>
     </Container>
+  
   );
 };
 

@@ -136,7 +136,7 @@ const About = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas error
           in temporibus consequatur. Quae, corporis.
         </Typography>
-        <Link color="inherit" className={read_more}  to="/mui-marft">
+        <Link color="inherit" className={read_more}  to="/">
           READ MORE
         </Link>
       </Box>
@@ -150,7 +150,7 @@ const About = () => {
               alignItems: "flex-end",
             }}
           >
-            <Button variant="contained" size="large" className={btn_read} component={Link} to="/mui-marft">
+            <Button variant="contained" size="large" className={btn_read} component={Link} to="/">
               READ ALL BlOGS
             </Button>
           </Box>
@@ -165,7 +165,7 @@ const About = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
             error in temporibus consequatur. Quae, corporis.
           </Typography>
-          <Link to="/mui-marft" color="inherit" className={read_more} >
+          <Link to="/" color="inherit" className={read_more} >
             READ MORE
           </Link>
         </Box>

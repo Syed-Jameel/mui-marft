@@ -21,9 +21,10 @@ const useStyles = makeStyles((theme) => {
       padding: "7rem 0",
     },
     main: {
-      backgroundColor: "#F8F3EC",
+      // backgroundColor: "#F8F3EC",
       maxWidth: "100%",
       height:"100vh",
+      backgroundColor: theme.palette.primary.background,
       [theme.breakpoints.down("lg", "md", "sm")]: {
         height: "100%",
         padding :"20px"
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme) => {
     mainhead: {
       textAlign: "center",
       padding: "100px",
+
     },
     head_text: {
       marginTop: "10px",
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => {
     first_card: {
       height: "350px",
       padding: "20px",
+      color: theme.palette.primary.cardTextColor,
       [theme.breakpoints.down("md")]: {},
     },
     first_card_content: {
@@ -57,10 +60,14 @@ const useStyles = makeStyles((theme) => {
     third_card: {
       height: "350px",
       padding: "20px",
+      color: theme.palette.primary.cardTextColor,
       [theme.breakpoints.down("lg")]: {
         
       },
     },
+    heading:{
+      color: theme.palette.primary.textColor,
+    }
   };
 });
 const Service = () => {
@@ -74,13 +81,14 @@ const Service = () => {
     first_card,
     third_card,
     first_card_content,
+    heading
   } = useStyles();
 
   return (
     <>
     <Grid className={main}>
       <Box className={mainhead}>
-        <Typography variant="h3" sx={{ color: "#181817" }}>
+        <Typography variant="h3" className={heading}>
           What we provide
         </Typography>
         <Box className={head_text}>
@@ -96,7 +104,7 @@ const Service = () => {
 
       <Grid container spacing={3} className={threecard}>
         <Grid item xs={12} sm={6} md={6} lg={3}>
-          <Card sx={{ backgroundColor: "#EAE4DC" }} className={first_card}>
+          <Card  className={first_card}>
             <Grid sx={{ padding: "20px" }} className={first_card_content}>
               <Avatar src="./images/squar.png" />
             </Grid>
@@ -149,7 +157,7 @@ const Service = () => {
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={3}>
-          <Card sx={{ backgroundColor: "#EAE4DC" }} className={third_card}>
+          <Card  className={third_card}>
             <Grid sx={{ padding: "20px" }}>
               <Avatar src="./images/triangle.png" />
             </Grid>
