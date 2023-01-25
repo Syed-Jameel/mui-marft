@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => {
       justifyContent: "space-between",
       alignItems: "center",
       maxWidth: "100%",
-      padding: "3.7rem 0",
+      padding: "6.5rem 0",
       [theme.breakpoints.down("lg")]: {
         display: "flex",
         justifyContent: "center",
