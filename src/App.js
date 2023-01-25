@@ -24,7 +24,7 @@ function App() {
           <section>
             <Routes>
               <Route exact path="/mui-marft" element={<Hero />}></Route>
-              <Route path="/about-us" element={<AboutUs />}></Route>
+              <Route path="/about-us" element={<AboutUs/>}></Route>
               <Route path="/service" element={<Service />}></Route>
               <Route path="/blog" element={<Blog />}></Route>
               <Route path="/contact" element={<Contact />}></Route>

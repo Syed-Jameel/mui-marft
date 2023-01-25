@@ -97,82 +97,82 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
-const Blog = () => {
-  const {
-    main_wrapper,
-    left_box,
-    right_box,
-    btn_wrapper,
-    img_style,
-    btn_read,
-    heading,
-    text_wrapper,
-    date,
-    para,
-    read_more,
-  } = useStyles();
-
+const About = () => {
+    const {
+        main_wrapper,
+        left_box,
+        right_box,
+        btn_wrapper,
+        img_style,
+        btn_read,
+        heading,
+        text_wrapper,
+        date,
+        para,
+        read_more,
+      } = useStyles();
+      
   return (
     <Container maxWidth="lg">
-      <Box className={main_wrapper}>
-        <Box className={left_box}>
-          <Box sx={{ height: "100px" }}>
-            <Typography variant="h4" className={heading}>
-              Read Our Blogs
-            </Typography>
-            <Typography variant="string">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
-              unde.
-            </Typography>
+    <Box className={main_wrapper}>
+      <Box className={left_box}>
+        <Box sx={{ height: "100px" }}>
+          <Typography variant="h4" className={heading}>
+            Read Our Blogs
+          </Typography>
+          <Typography variant="string">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            unde.
+          </Typography>
+        </Box>
+        <Image src="./images/Readimg01.png" className={img_style} />
+        <Typography variant="string" className={date}>
+          April 30, 2020{" "}
+        </Typography>
+        <Typography variant="h6">
+          How to collaborate with companies
+        </Typography>
+        <Typography variant="string" className={para}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas error
+          in temporibus consequatur. Quae, corporis.
+        </Typography>
+        <Link color="inherit" className={read_more}  to="/mui-marft">
+          READ MORE
+        </Link>
+      </Box>
+      <Box className={right_box}>
+        <Box className={btn_wrapper}>
+          <Box
+            sx={{
+              height: "100px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+            }}
+          >
+            <Button variant="contained" size="large" className={btn_read} component={Link} to="/mui-marft">
+              READ ALL BlOGS
+            </Button>
           </Box>
-          <Image src="./images/Readimg01.png" className={img_style} />
+        </Box>
+        <Box className={text_wrapper}>
+          <Image src="./images/Readimg02.png" className={img_style} />
           <Typography variant="string" className={date}>
             April 30, 2020{" "}
           </Typography>
-          <Typography variant="h6">
-            How to collaborate with companies
-          </Typography>
+          <Typography variant="h6">About social media advertising</Typography>
           <Typography variant="string" className={para}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas error
-            in temporibus consequatur. Quae, corporis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+            error in temporibus consequatur. Quae, corporis.
           </Typography>
-          <Link color="inherit" className={read_more}  to="/mui-marft">
+          <Link to="/mui-marft" color="inherit" className={read_more} >
             READ MORE
           </Link>
         </Box>
-        <Box className={right_box}>
-          <Box className={btn_wrapper}>
-            <Box
-              sx={{
-                height: "100px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-end",
-              }}
-            >
-              <Button variant="contained" size="large" className={btn_read} component={Link} to="/mui-marft">
-                READ ALL BlOGS
-              </Button>
-            </Box>
-          </Box>
-          <Box className={text_wrapper}>
-            <Image src="./images/Readimg02.png" className={img_style} />
-            <Typography variant="string" className={date}>
-              April 30, 2020{" "}
-            </Typography>
-            <Typography variant="h6">About social media advertising</Typography>
-            <Typography variant="string" className={para}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-              error in temporibus consequatur. Quae, corporis.
-            </Typography>
-            <Link to="/mui-marft" color="inherit" className={read_more} >
-              READ MORE
-            </Link>
-          </Box>
-        </Box>
       </Box>
-    </Container>
-  );
-};
+    </Box>
+  </Container>
+  )
+}
 
-export default Blog;
+export default About

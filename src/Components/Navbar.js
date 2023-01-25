@@ -113,9 +113,9 @@ const Navbar = ({ flexDirection }) => {
   const [value, setValue] = useState();
 
   const them = useTheme();
-  console.log(them);
+  // console.log(them);
   const isMatch = useMediaQuery(them.breakpoints.down("lg"));
-  console.log(isMatch);
+  // console.log(isMatch);
 
   // const PAGES = ["About us", "Service", "Blog", "Contact"];
 
